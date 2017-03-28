@@ -8,6 +8,7 @@ import { AppRouter } from './AppRouter.module';
 import { AppComponent } from '../Components/app.component';
 import { LoginComponent } from '../Components/login.component';
 import { MenuComponent } from '../Components/menu.component';
+import { PageNotFoundComponent } from '../Components/not-found.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { MenuComponent } from '../Components/menu.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    PageNotFoundComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
