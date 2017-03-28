@@ -17,7 +17,7 @@ export class LoginComponent {
     if(this.username === "user" &&
       this.password === "password"){
       console.log("Logged In!");
-      this.router.navigate(['/main']);
+      this.router.navigate(['menu']);
     }
     else {
       console.log(this.username + ' ' + this.password);
