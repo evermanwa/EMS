@@ -1,0 +1,31 @@
+<div class="row" style="padding-top: 15%;">
+  <div class="col-5"></div>
+  <div class="col-2">
+    <div class="card">
+      <div class="card-header">Login</div>
+      <div class="card-block">
+
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i> </span>
+          <input class="form-control" type="text" aria-label="Username" [(ngModel)]="username">
+        </div>
+
+        <br/>
+
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input class="form-control" type="password" aria-label="Password" [(ngModel)]="password">
+        </div>
+
+        <br/>
+
+        <div class="text-center">
+          <button class="btn btn-primary" (click)="validate()">Submit</button>
+          <a class="btn btn-danger" href="www.google.com">Cancel</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
