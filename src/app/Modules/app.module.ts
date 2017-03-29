@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRouter } from './AppRouter.module';
+import { AuthService } from '../Services/Auth.service';
 
 import { AppComponent } from '../Components/app.component';
 import { LoginComponent } from '../Components/login.component';
@@ -23,7 +24,7 @@ import { PageNotFoundComponent } from '../Components/not-found.component';
     MenuComponent,
     PageNotFoundComponent
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,26 +1,40 @@
-import { Component } from '@angular/core';
-import { Router } from  '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../Services/Auth.service';
 
 @Component({
   templateUrl: '../Templates/login.component.html'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   title = 'app works!';
-  username: string = 'user';
-  password: string = 'password'
+  username = 'user';
+  password = 'password';
 
-  constructor(private router: Router){
+  ngOnInit(): void {
+    console.log('Initializing - ' + 'Login');
+  }
+
+  constructor(private router: Router,
+  private auth: AuthService) {
 
   }
 
-  validate(): void{
-    if(this.username === "user" &&
-      this.password === "password"){
-      console.log("Logged In!");
-      this.router.navigate(['menu']);
+  validate(): void {
+    if ( !this.username && !this.password ) {
+      return;
+    }
+
+    if (this.auth.Authenticate(this.username, this.password)){
+      this.router.navigate(['menu'])
+        .then(data => {
+          console.log('Result Value: ' + data);
+        });
     }
     else {
-      console.log(this.username + ' ' + this.password);
+      this.router.navigate(['error404'])
+        .then(data => {
+          console.log('Result Value: ' + data);
+        });
     }
   }
 }
