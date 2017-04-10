@@ -7,8 +7,8 @@ import { AuthService } from '../Services/Auth.service';
 })
 export class LoginComponent implements OnInit {
   title = 'app works!';
-  username = 'user';
-  password = 'password';
+  username = '';
+  password = '';
   status: boolean = false;
 
   ngOnInit(): void {
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     if (this.auth.Authenticate(this.username, this.password)){
       this.status = true;
       console.log('Logging In - ' + this.status);
+
       /*
         this.router.navigate(['menu'])
         .then(data => {

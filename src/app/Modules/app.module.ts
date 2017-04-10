@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppRouter } from './AppRouter.module';
 import { AuthService } from '../Services/Auth.service';
+import { CookieService } from 'ng2-cookies';
 
 import { AppComponent } from '../Components/app.component';
 import { LoginComponent } from '../Components/login.component';
@@ -24,7 +25,7 @@ import { PageNotFoundComponent } from '../Components/not-found.component';
     MenuComponent,
     PageNotFoundComponent
   ],
-  providers: [AuthService],
+  providers: [AuthService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
