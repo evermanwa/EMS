@@ -9,8 +9,6 @@ export class AuthService {
   }
 
   public Authenticate(username: string, password: string): boolean {
-    if(this.isTokenValid() === true){ return true; }
-
     if(username == 'user' && password == 'password'){
       var exp = this.addMinutes(new Date(), 5);
       this.cookieService.set('loginToken', "true", exp);
@@ -19,11 +17,12 @@ export class AuthService {
     return false;
   }
 
-  private isTokenValid(): boolean{
+  public isTokenValid(): boolean{
     var cookie = this.cookieService.get('loginToken');
     if(cookie){
       return true;
     }
+    return false;
   }
 
   private addMinutes(date, minutes) {
