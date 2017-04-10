@@ -9,6 +9,7 @@ export class LoginComponent implements OnInit {
   title = 'app works!';
   username = 'user';
   password = 'password';
+  status: boolean = false;
 
   ngOnInit(): void {
     console.log('Initializing - ' + 'Login');
@@ -25,16 +26,24 @@ export class LoginComponent implements OnInit {
     }
 
     if (this.auth.Authenticate(this.username, this.password)){
-      this.router.navigate(['menu'])
+      this.status = true;
+      console.log('Logging In - ' + this.status);
+      /*
+        this.router.navigate(['menu'])
         .then(data => {
           console.log('Result Value: ' + data);
         });
+        */
     }
     else {
+      this.status = false;
+      console.log('Failed - ' + this.status);
+      /*
       this.router.navigate(['error404'])
         .then(data => {
           console.log('Result Value: ' + data);
         });
+      */
     }
   }
 }

@@ -2,6 +2,7 @@
   <div class="col-5"></div>
   <div class="col-2">
     <div class="card">
+
       <div class="card-header">Login</div>
       <div class="card-block">
 
@@ -24,8 +25,13 @@
           <a class="btn btn-danger" href="http://www.google.com">Cancel</a>
         </div>
 
-      </div>
+        <br/>
 
+        <div *ngIf="status === true; then success else fail"></div>
+        <template #success>Successful Log-In</template>
+        <template #fail>Failed Log-In</template>
+
+      </div>
     </div>
   </div>
 </div>
