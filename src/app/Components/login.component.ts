@@ -7,8 +7,8 @@ import { AuthService } from '../Services/Auth.service';
 })
 export class LoginComponent implements OnInit {
   title = 'app works!';
-  username = '';
-  password = '';
+  username = 'user';
+  password = 'password';
   status: boolean = false;
 
   ngOnInit(): void {
@@ -33,21 +33,22 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    if (this.auth.Authenticate(this.username, this.password)){
-      this.status = true;
-      console.log('Logging In - ' + this.status);
-      this.router.navigate(['menu'])
-        .then(data => {
-          //console.log('Result Value: ' + data);
-        });
-    }
-    else {
-      this.status = false;
-      console.log('Failed - ' + this.status);
-      this.router.navigate(['error404'])
-        .then(data => {
-          //console.log('Result Value: ' + data);
-        });
-    }
+    this.auth.Authenticate(this.username, this.password)
+      .then(data =>{
+        this.status = true;
+        console.log('Logging In - ' + this.status);
+        this.router.navigate(['menu'])
+          .then(data => {
+            //console.log('Result Value: ' + data);
+          });
+      })
+      .catch(error => {
+        this.status = false;
+        console.log('Failed - ' + this.status);
+        this.router.navigate(['error404'])
+          .then(data => {
+            //console.log('Result Value: ' + data);
+          });
+      });
   }
 }
