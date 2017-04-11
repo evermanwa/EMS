@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     if(this.auth.isTokenValid() === true){
       this.router.navigate(['menu'])
         .then(data => {
-          console.log('Result Value: ' + data);
+          //console.log('Result Value: ' + data);
         });
     }
     else {
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       console.log('Logging In - ' + this.status);
       this.router.navigate(['menu'])
         .then(data => {
-          console.log('Result Value: ' + data);
+          //console.log('Result Value: ' + data);
         });
     }
     else {
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       console.log('Failed - ' + this.status);
       this.router.navigate(['error404'])
         .then(data => {
-          console.log('Result Value: ' + data);
+          //console.log('Result Value: ' + data);
         });
     }
   }
