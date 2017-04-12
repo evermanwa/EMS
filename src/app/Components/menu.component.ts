@@ -9,15 +9,7 @@ export class MenuComponent implements OnInit{
   content = "Data Here!";
 
   ngOnInit(): void {
-    if(this.auth.isTokenValid() === false){
-      this.router.navigate(['login'])
-        .then(data => {
-          //console.log('Result Value: ' + data);
-        });
-    }
-    else {
-      console.log('Initializing - ' + 'Login');
-    }
+    this.auth.ValidateContext();
   }
 
   constructor(private auth: AuthService,

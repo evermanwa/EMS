@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
         });
     }
     else {
-      console.log('Initializing - ' + 'Login');
+      //console.log('Initializing - ' + 'Login');
     }
   }
 
@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
     this.auth.Authenticate(this.username, this.password)
       .then(data =>{
         this.status = true;
-        console.log('Logging In - ' + this.status);
         this.router.navigate(['menu'])
           .then(data => {
             //console.log('Result Value: ' + data);
