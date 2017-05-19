@@ -4,5 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  getAPIString: function() {
+    if(this.production == true){
+      return "api/";
+    }
+    else {
+      return "http://localhost:51505/api";
+    }
+  }
 };
